@@ -1,8 +1,8 @@
 import telegram.ext
 
 Token="5978028781:AAGQwAlawbkWL7_-UPepL0eqUxL4mmj2SrI"
-updater=telegram.ext.updater("5978028781:AAGQwAlawbkWL7_-UPepL0eqUxL4mmj2SrI" , use_context=True)
-dispatcher=updater.dispatcher
+up=telegram.ext.updater(Token,use_context=True)
+dispatcher=up.dispatcher
 
 def start(update, context):
     update.message.reply_text("Hello! Welcome to GCECT")
