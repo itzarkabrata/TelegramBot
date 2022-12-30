@@ -1,6 +1,6 @@
 import telegram.ext
 
-Token='5978028781:AAGQwAlawbkWL7_-UPepL0eqUxL4mmj2SrI'
+Token='5978028781:AAHo8vS2cIYKTamNbvCHNvIoYb1UcaZHkQI'
 updater=telegram.ext.updater(Token , use_context=True)
 dispatcher=updater.dispatcher
 
@@ -51,3 +51,4 @@ dispatcher.add_handler(telegram.ext.Commandhandler('wind_speed', wind_speed))
 
 updater.start_polling()
 updater.idle()
+
