@@ -28,7 +28,7 @@ def content(update, context):
                 sunrise
                 sunset
                 air pressure
-                wimd speed
+                wind speed
         """)
 
 """ basic_weather functions should be written here
