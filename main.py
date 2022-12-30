@@ -7,11 +7,11 @@ dispatcher=up.dispatcher
 def start(update, context):
     update.message.reply_text("Hello! Welcome to GCECT")
 
-def help(update, context):
+def helpline(update, context):
     update.message.reply_text(
         """
         /start -> Welcome to our college
-        /help -> this message will show
+        /helpline -> this message will show
         /content -> About the various weather details of different regions
         /basic_weather -> about the basic description , temperature , visibility, humidity
         /sunrise -> showing the time of sunrise
@@ -41,7 +41,7 @@ def content(update, context):
 """
 
 dispatcher.add_handler(telegram.ext.Commandhandler('start', start))
-dispatcher.add_handler(telegram.ext.Commandhandler('help', help))
+dispatcher.add_handler(telegram.ext.Commandhandler('helpline', helpline))
 dispatcher.add_handler(telegram.ext.Commandhandler('content', content))
 dispatcher.add_handler(telegram.ext.Commandhandler('basic_weather', basic_weather))
 dispatcher.add_handler(telegram.ext.Commandhandler('sunrise', sunrise))
@@ -51,3 +51,4 @@ dispatcher.add_handler(telegram.ext.Commandhandler('wind_speed', wind_speed))
 
 updater.start_polling()
 updater.idle()
+
