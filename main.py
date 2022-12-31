@@ -1,15 +1,15 @@
-import telegram.ext
+import os,telebot
 
-Token='5978028781:AAHo8vS2cIYKTamNbvCHNvIoYb1UcaZHkQI'
-updater=telegram.ext.updater(Token , use_context=True)
-dispatcher=updater.dispatcher
+API_KEY='5978028781:AAHo8vS2cIYKTamNbvCHNvIoYb1UcaZHkQI'
+bot=telebot.TeleBot(API_KEY)
 
-def start(update, context):
-    update.message.reply_text("Hello! Welcome to GCECT")
+@bot.message_handler(commands=['start'])
+def show(message):
+    bot.reply_to(message,"Hello! Welcome to GCECT")
 
-def helpline(update, context):
-    update.message.reply_text(
-        """
+@bot.message_handler(commands=['helpline'])
+def show(message):
+    bot.reply_to(message,"""following commands will perform as stated below:
         /start -> Welcome to our college
         /helpline -> this message will show
         /content -> About the various weather details of different regions
@@ -17,38 +17,15 @@ def helpline(update, context):
         /sunrise -> showing the time of sunrise
         /sunset -> showing the time of sunset
         /pressure -> showing atm pressure
-        /wind_speed -> showing wind speed
-        """
-    )
+        /wind_speed -> showing wind speed""")
 
-def content(update, context):
-    update.message.reply_text(
-        """ We have various details regarding weather available :
+@bot.message_handler(commands=['content'])
+def show(message):
+    bot.reply_to(message,""" We have various details regarding weather available :
                 basic weather details
                 sunrise
                 sunset
                 air pressure
-                wind speed
-        """)
+                wind speed""")    
 
-""" basic_weather functions should be written here
-    functions under basic function
-"""
-""" sunrise function
-    sunset function
-    pressure function
-    wind_speed function
-"""
-
-dispatcher.add_handler(telegram.ext.Commandhandler('start', start))
-dispatcher.add_handler(telegram.ext.Commandhandler('helpline', helpline))
-dispatcher.add_handler(telegram.ext.Commandhandler('content', content))
-dispatcher.add_handler(telegram.ext.Commandhandler('basic_weather', basic_weather))
-dispatcher.add_handler(telegram.ext.Commandhandler('sunrise', sunrise))
-dispatcher.add_handler(telegram.ext.Commandhandler('sunset', sunset))
-dispatcher.add_handler(telegram.ext.Commandhandler('pressure', pressure))
-dispatcher.add_handler(telegram.ext.Commandhandler('wind_speed', wind_speed))
-
-updater.start_polling()
-updater.idle()
-
+bot.infinity_polling()
