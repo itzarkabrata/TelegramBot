@@ -1,6 +1,7 @@
 def hello_world(request):
   import os,telebot
   import requests, json
+  import datetime
 
   API_KEY='5978028781:AAHo8vS2cIYKTamNbvCHNvIoYb1UcaZHkQI'
   bot=telebot.TeleBot(API_KEY)
@@ -31,10 +32,9 @@ def hello_world(request):
                     air pressure
                     wind speed""")    
 
-    @bot.message_handler(func=lambda message: True)
+    @bot.message_handler(func=lambda message: True,commands=['weather'])
     def weather(message):
         c = message.text
-
         W_Url = "https://api.openweathermap.org/data/2.5/weather?"
         API_KEY = '4961dfe8dac0eb120ff56f0dd8af8f0a'
         URL = W_Url + "q=" +c+ "&appid=" + API_KEY
@@ -63,6 +63,57 @@ def hello_world(request):
         else:
             #Invalid City message
             bot.send_message(message.chat.id,"""Enter  a  Valid City""")
+
+    @bot.message_handler(commands=['sunrise'])
+    def sunrise(message):
+        c = message.text
+        W_Url = "https://api.openweathermap.org/data/2.5/weather?"
+        API_KEY = '4961dfe8dac0eb120ff56f0dd8af8f0a'
+        URL = W_Url + "q=" +c+ "&appid=" + API_KEY
+
+        City=""
+        response = requests.get(URL)
+
+        #---->Condition request
+        if response.status_code == 200:
+            #---->formating to Json
+            data = response.json()
+            sunrise = datetime.datetime.fromtimestamp(int(data['sys']['sunrise']))
+            bot.send_message(message.chat.id,sunrise)
+
+    @bot.message_handler(commands=['sunset'])   
+    def sunset(message):
+        c = message.text
+        W_Url = "https://api.openweathermap.org/data/2.5/weather?"
+        API_KEY = '4961dfe8dac0eb120ff56f0dd8af8f0a'
+        URL = W_Url + "q=" +c+ "&appid=" + API_KEY
+
+        City=""
+        response = requests.get(URL)
+
+        #---->Condition request
+        if response.status_code == 200:
+            #---->formating to Json
+            data = response.json()
+            sunset = datetime.datetime.fromtimestamp(int(data['sys']['sunset']))
+            bot.send_message(message.chat.id,sunset)
+    
+    @bot.message_handler(commands=['sunset'])   
+    def sunset(message):
+        c = message.text
+        W_Url = "https://api.openweathermap.org/data/2.5/weather?"
+        API_KEY = '4961dfe8dac0eb120ff56f0dd8af8f0a'
+        URL = W_Url + "q=" +c+ "&appid=" + API_KEY
+
+        City=""
+        response = requests.get(URL)
+
+        #---->Condition request
+        if response.status_code == 200:
+            #---->formating to Json
+            data = response.json()
+            pressure = int(data['main']['pressure'])
+            bot.send_message(message.chat.id,pressure)
 
     bot.infinity_polling()
 #   return 'OK'
