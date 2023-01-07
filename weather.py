@@ -1,30 +1,30 @@
-def show_main(message):
-     import requests
-     W_Url = "https://api.openweathermap.org/data/2.5/weather?"
-     API_KEY = '4961dfe8dac0eb120ff56f0dd8af8f0a'
-     URL = W_Url + "q=" +message+ "&appid=" + API_KEY
-
-     City=""
-     response = requests.get(URL)
-
-     #---->Condition request
-     if response.status_code == 200:
-          #---->formating to Json
-          data = response.json()
-          #---->gettingt ta dictionary
-          main = data['main']
-          #----->Temperature
-          temp = (int(main['temp'])-273.0)
-          #----->Visibilty
-          visibility = (data['visibility'])
-          #---->Humidity
-          humid = (main['humidity'])
-          #---->Status
-          status = data['weather']
-
-          City+=f"-----{c}-----"+'\n'+f"Temperature: {temp} Celsius"+'\n'+f"Humidity: {humid} g/kg"+'\n'+f"Visibility: {visibility} "+'\n'+f"Weather Condition: {status[0]['description']} "
-          
-          return(City)
-     else:
-          #Invalid City message
-          return("Enter  a  Valid City")
+def show_weather(x):
+ # importing requests and json
+ import requests, json
+ x=str(x)
+ # base URL
+ BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
+ API_KEY='4961dfe8dac0eb120ff56f0dd8af8f0a'
+ URL = BASE_URL + "q=" + x + "&appid=" + API_KEY
+ st=""
+ # HTTP request
+ response = requests.get(URL)
+ # checking the status code of the request
+ if response.status_code == 200:
+    # getting data in the json format
+    data = response.json()
+    # getting the main dict block
+    main = data['main']
+    # getting temperature
+    temperature = (int(main['temp'])-273.0)
+    # getting the humidity
+    humidity = main['humidity']
+    # getting the pressure
+    pressure = main['pressure']
+    # weather report
+    report = data['weather']
+    st+=f"{x:-^30}"+'\n'+f"Temperature: {temperature} Celsius"+'\n'+f"Humidity: {humidity} g/kg"+'\n'+f"Pressure: {pressure} Pa"+'\n'+f"Weather Report: {report[0]['description']}"
+    return(st)
+ else:
+    # showing the error message
+    return("Error in the HTTP request")
