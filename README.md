@@ -1,6 +1,6 @@
 # TelegramBot
 
-## This is the Google Cloud Project which is nothing but a simple Telegram Bot which is response-based interactive script.\
+## This is the Google Cloud Project which is nothing but a simple Telegram Bot which is a response-based interactive script!
 
 
 ### Below are the list of commands and their respective purpose displayed on using **'/helpline'**:
