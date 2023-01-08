@@ -18,7 +18,7 @@
                             &emsp;&emsp;&emsp; -Sunset and,  
                             &emsp;&emsp;&emsp; -Weather Condition.*
                 
-  /basic_weather -> *Diplays the details as specified by **/content** *
+  /basic_weather -> *Diplays the details as specified by **/content***
   
   /sunrise -> *Displays the time of sunrise for a city at that time*
   
