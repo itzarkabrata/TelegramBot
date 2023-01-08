@@ -14,15 +14,12 @@ def show(message):
 
 @bot.message_handler(commands=['helpline'])
 def show(message):
-    bot.reply_to(message, """following commands will perform as stated below:
+    bot.reply_to(message, """Following commands will perform as stated below:
         /start -> Welcome to our college
-        /helpline -> this message will show
+        /helpline -> this message will show the available functionality of the bot
         /content -> About the various weather details of different regions
-        /basic_weather -> about the basic description , temperature , visibility, humidity
-        /sunrise -> showing the time of sunrise
-        /sunset -> showing the time of sunset
-        /pressure -> showing atm pressure
-        /wind_speed -> showing wind speed""")
+        /basic_weather -> about the basic description , temperature , humidity , visibility , sunrise , sunset , weather condition
+          """)
 
 
 @bot.message_handler(commands=['content'])
@@ -31,8 +28,8 @@ def show(message):
                 basic weather details
                 sunrise
                 sunset
-                air pressure
-                wind speed""")
+                visibility
+                weather condition""")
 
 
 @bot.message_handler(func=lambda message: True)
@@ -70,7 +67,7 @@ def weather(message):
         bot.send_message(message.chat.id, City)
     else:
         # Invalid City message
-        bot.send_message(message.chat.id, """Enter  a  Valid City""")
+        bot.send_message(message.chat.id, """Enter a Valid City Name""")
 
 
 bot.infinity_polling()
