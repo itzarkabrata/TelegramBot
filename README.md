@@ -11,7 +11,7 @@
   
   /content -> *The various weather details of different areas/regions are displayed with the following attributes:*  
                &emsp;&emsp;&emsp;basic weather details, which include:  
-                           &emsp;&emsp;&emsp;*+Temperature  
+                            &emsp;&emsp;&emsp;*+Temperature  
                             &emsp;&emsp;&emsp; +Humidity  
                             &emsp;&emsp;&emsp; +Visibility  
                             &emsp;&emsp;&emsp; +Sunrise   
