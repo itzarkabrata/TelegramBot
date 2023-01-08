@@ -11,12 +11,12 @@
   
   /content -> *The various weather details of different areas/regions are displayed with the following attributes:*  
                &emsp;&emsp;&emsp;basic weather details, which include:  
-                           &emsp;&emsp;&emsp;*+Temperature  
-                            &emsp;&emsp;&emsp; +Humidity  
-                            &emsp;&emsp;&emsp; +Visibility  
-                            &emsp;&emsp;&emsp; +Sunrise   
-                            &emsp;&emsp;&emsp; +Sunset and,  
-                            &emsp;&emsp;&emsp; +Weather Condition.*
+                            &emsp;&emsp;&emsp;*-Temperature  
+                            &emsp;&emsp;&emsp; -Humidity  
+                            &emsp;&emsp;&emsp; -Visibility  
+                            &emsp;&emsp;&emsp; -Sunrise   
+                            &emsp;&emsp;&emsp; -Sunset and,  
+                            &emsp;&emsp;&emsp; -Weather Condition.*
                 
   /basic_weather -> *Diplays the details as specified by **/content** *
   
