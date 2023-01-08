@@ -10,7 +10,7 @@
   /helpline -> *This command displays all the usable commands for the bot and their respective use/purpose.*
   
   /content -> *The various weather details of different areas/regions are displayed with the following attributes:*
-                basic weather details, which include:
+                  basic weather details, which include:
                            *Temperature  
                             Humidity  
                             Visibility  
